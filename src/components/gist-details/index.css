@@ -1,0 +1,18 @@
+.gist-details-container {
+  width: 80%;
+  margin: auto;
+  margin-top: 1rem;
+  max-height: 75vh;
+  overflow: scroll;
+  border-radius: 1rem;
+}
+
+.gist-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ffffff;
+  background-color: #f2f2f2;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #49697a;
+}

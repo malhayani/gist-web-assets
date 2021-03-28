@@ -1,0 +1,14 @@
+.gist-list-container {
+  width: 80%;
+  margin: auto;
+  margin-top: 1rem;
+  max-height: 75vh;
+  overflow: scroll;
+  border-radius: 1rem;
+}
+
+.no-results {
+  margin-top: 3rem;
+  text-align: center;
+  color: #49697a;
+}

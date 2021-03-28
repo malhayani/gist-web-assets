@@ -1,0 +1,44 @@
+.gist-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ffffff;
+  background-color: #f2f2f2;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #49697a;
+}
+
+.gist-container:hover {
+  filter: brightness(95%);
+}
+
+.gist-user-information {
+  text-align: center;
+  font-size: 12px;
+  width: 10rem;
+  margin-top: 1rem;
+}
+
+.avatar-icon {
+  height: 5rem;
+  border-radius: 2.5rem;
+}
+
+.gist-information {
+  font-size: 12px;
+  margin: auto;
+  width: calc(100% - 10rem - 5rem);
+}
+
+.gist-additional-details {
+  margin: auto;
+  margin-top: 0.5rem;
+  text-align: center;
+  width: 5rem;
+}
+
+.gist-github-link {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #2c90c4;
+}

@@ -1,0 +1,16 @@
+.favorite-button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.favorited-icon {
+  color: #e08a49;
+  font-size: 1.25rem;
+}
+
+.unfavorited-icon {
+  color: #a0b5c3;
+  font-size: 1.25rem;
+}
