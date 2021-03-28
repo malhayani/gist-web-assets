@@ -31,8 +31,9 @@
 .back-to-search {
   float: left;
   border: none;
+  position: absolute;
   margin-left: 2rem;
-  margin-top: -2rem;
+  margin-top: 1rem;
   background-color: transparent;
   outline: none;
   cursor: pointer;
@@ -42,10 +43,9 @@
 
 .see-more-button {
   margin: auto;
-  text-align: center;
+  margin-left: 49vw;
   border: none;
-  /* margin-left: 2rem; */
-  /* margin-top: -2rem; */
+  margin-top: 1rem;
   background-color: transparent;
   outline: none;
   cursor: pointer;

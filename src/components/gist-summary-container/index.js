@@ -36,7 +36,7 @@ export const GistSummaryContainer = ({ gist, manageShowGistDetails }) => {
       <section className="gist-additional-details">
         <FavoriteButton gist={gist} />
         <a href={gist.html_url} className="gist-github-link">
-          View on GitHub
+          GitHub
         </a>
       </section>
     </div>

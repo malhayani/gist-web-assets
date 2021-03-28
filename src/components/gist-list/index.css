@@ -3,7 +3,7 @@
   margin: auto;
   margin-top: 1rem;
   max-height: 75vh;
-  overflow: scroll;
+  overflow-y: scroll;
   border-radius: 1rem;
 }
 

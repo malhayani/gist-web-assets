@@ -12,8 +12,8 @@ function GistViewer() {
   const [searchInformation, setSearchInformation] = useState({
     term: "",
     type: "username",
+    pageNum: 1,
   });
-  const [pageNum, setPageNum] = useState(1);
   const [showDetails, setShowDetails] = useState(false);
   const [detailedGist, setDetailedGist] = useState(null);
   const [gists, setGists] = useState([]);
@@ -39,7 +39,15 @@ function GistViewer() {
   // Tracks query results and search information to maintain single list of gists
   useEffect(() => {
     if (searchInformation.type === "username") {
-      setGists(gistsByUsername ? gistsByUsername.getGistsByUsername : []);
+      if (searchInformation.pageNum !== 1) {
+        setGists(
+          gistsByUsername
+            ? gists.concat(gistsByUsername.getGistsByUsername)
+            : [...gists]
+        );
+      } else {
+        setGists(gistsByUsername ? gistsByUsername.getGistsByUsername : []);
+      }
     } else if (searchInformation.type === "id") {
       setGists(gistsById ? [gistsById.getGistsById] : []);
     } else if (searchInformation.type === "favorites") {
@@ -52,11 +60,11 @@ function GistViewer() {
   // Tracks changes made to the search information to fire off the corresponding query
   useEffect(() => {
     if (searchInformation.type === "username") {
-      if (searchInformation.term && pageNum) {
+      if (searchInformation.term && searchInformation.pageNum) {
         searchByUsername({
           variables: {
             username: searchInformation.term,
-            pageNum: pageNum,
+            pageNum: searchInformation.pageNum,
             maxResults: 10,
           },
         });
@@ -70,7 +78,7 @@ function GistViewer() {
     } else {
       searchFavoritedGists();
     }
-  }, [searchInformation, pageNum]);
+  }, [searchInformation]);
 
   // Manages the show details click event
   const manageShowGistDetails = (gist) => {
@@ -84,7 +92,7 @@ function GistViewer() {
         <div className="gist-viewer">
           <button
             onClick={() =>
-              setSearchInformation({ term: "", type: "favorites" })
+              setSearchInformation({ term: "", type: "favorites", pageNum: 1 })
             }
             className="show-favorites"
           >
@@ -101,9 +109,14 @@ function GistViewer() {
                 gists={gists}
                 manageShowGistDetails={manageShowGistDetails}
               />
-              {gists.length === pageNum * 10 && (
+              {gists.length === searchInformation.pageNum * 10 && (
                 <button
-                  onClick={() => setPageNum(pageNum + 1)}
+                  onClick={() =>
+                    setSearchInformation({
+                      ...searchInformation,
+                      pageNum: searchInformation.pageNum + 1,
+                    })
+                  }
                   className="see-more-button"
                 >
                   See more

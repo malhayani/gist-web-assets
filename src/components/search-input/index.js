@@ -18,7 +18,9 @@ export const SearchInput = ({ search }) => {
         />
         <button
           className="search-button"
-          onClick={() => search({ term: searchTerm, type: searchType })}
+          onClick={() =>
+            search({ term: searchTerm, type: searchType, pageNum: 1 })
+          }
         >
           <span className="search-icon" aria-label="search">
             &#9906;
